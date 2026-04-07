@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TunSociety.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d588e1701490bb814aabe6e0c49c647914c498aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("TunSociety.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TunSociety.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
