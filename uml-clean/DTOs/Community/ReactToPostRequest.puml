@@ -1,0 +1,9 @@
+@startuml
+!include ..\..\style.puml
+title ReactToPostRequest
+
+class ReactToPostRequest {
+    + ReactionType : string <<get>> <<set>>
+    + UserId : Guid
+}
+@enduml

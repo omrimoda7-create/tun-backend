@@ -1,0 +1,18 @@
+@startuml
+class Post {
+    + Title : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+    + ImageUrl : string? <<get>> <<set>>
+    + Visibility : string <<get>> <<set>> = "Public"
+}
+class "ICollection`1"<T> {
+}
+Post -- "Id" Guid
+Post -- "UserId" Guid
+Post -- "User" User
+Post o-> "CreatedAtUtc" DateTime
+Post -- "UpdatedAtUtc" DateTime
+Post o-> "Comments<PostComment>" "ICollection`1"
+Post o-> "Reactions<PostReaction>" "ICollection`1"
+@enduml
+

@@ -1,0 +1,12 @@
+@startuml
+class PostReaction {
+    + ReactionType : string <<get>> <<set>>
+}
+PostReaction -- "Id" Guid
+PostReaction -- "PostId" Guid
+PostReaction -- "Post" Post
+PostReaction -- "UserId" Guid
+PostReaction -- "User" User
+PostReaction o-> "CreatedAtUtc" DateTime
+@enduml
+

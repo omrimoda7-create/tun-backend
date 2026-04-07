@@ -1,0 +1,14 @@
+@startuml
+class Appeal {
+    + TargetType : string <<get>> <<set>>
+    + Status : string <<get>> <<set>> = "Open"
+    + Reason : string? <<get>> <<set>>
+}
+Appeal -- "Id" Guid
+Appeal -- "UserId" Guid
+Appeal -- "User" User
+Appeal -- "TargetId" Guid
+Appeal o-> "CreatedAtUtc" DateTime
+Appeal -- "ResolvedAtUtc" DateTime
+@enduml
+

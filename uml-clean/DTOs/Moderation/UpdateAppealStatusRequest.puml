@@ -1,0 +1,8 @@
+@startuml
+!include ..\..\style.puml
+title UpdateAppealStatusRequest
+
+class UpdateAppealStatusRequest {
+    + Status : string <<get>> <<set>> = "Open"
+}
+@enduml

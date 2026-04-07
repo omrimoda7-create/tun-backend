@@ -1,0 +1,9 @@
+@startuml
+!include ..\..\style.puml
+title ModerationRequest
+
+class ModerationRequest {
+    + Content : string <<get>> <<set>>
+    + MessageId : Guid
+}
+@enduml

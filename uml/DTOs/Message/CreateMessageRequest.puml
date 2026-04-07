@@ -1,0 +1,7 @@
+@startuml
+class CreateMessageRequest {
+    + Content : string <<get>> <<set>>
+}
+CreateMessageRequest -- "UserId" Guid
+@enduml
+

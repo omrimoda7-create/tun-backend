@@ -1,0 +1,9 @@
+@startuml
+class UsersController {
+    + UsersController(dbContext:ApplicationDbContext)
+    + <<async>> GetById(id:Guid, cancellationToken:CancellationToken) : Task<ActionResult<UserResponse>>
+    + <<async>> Update(id:Guid, request:UpdateUserRequest, cancellationToken:CancellationToken) : Task<ActionResult<UserResponse>>
+}
+ControllerBase -- UsersController
+@enduml
+

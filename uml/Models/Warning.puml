@@ -1,0 +1,10 @@
+@startuml
+class Warning {
+    + Reason : string <<get>> <<set>>
+}
+Warning -- "Id" Guid
+Warning -- "UserId" Guid
+Warning -- "User" User
+Warning o-> "IssuedAtUtc" DateTime
+@enduml
+

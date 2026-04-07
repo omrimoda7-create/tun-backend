@@ -1,0 +1,9 @@
+@startuml
+!include ..\style.puml
+title AiScoringClient
+
+class AiScoringClient {
+    + AiScoringClient(httpClient:HttpClient, configuration:IConfiguration, logger:ILogger<AiScoringClient>)
+    + <<async>> ScoreAsync(content:string, cancellationToken:CancellationToken) : Task<double>
+}
+@enduml

@@ -1,0 +1,81 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+
+title TunSociety - Platform Use Case Diagram
+
+actor Guest
+actor Member
+
+rectangle "TunSociety Platform" {
+  usecase "Browse guest pages" as UC_Browse
+  usecase "Register" as UC_Register
+  usecase "Log in" as UC_Login
+
+  usecase "View feed" as UC_Feed
+  usecase "Create post" as UC_CreatePost
+  usecase "Update own post" as UC_UpdatePost
+  usecase "Delete own post" as UC_DeletePost
+  usecase "Comment on post" as UC_Comment
+  usecase "React to post" as UC_React
+
+  usecase "Manage profile" as UC_Profile
+  usecase "Update display name" as UC_UpdateDisplayName
+
+  usecase "Search workspace" as UC_Search
+  usecase "View search results" as UC_SearchResults
+  usecase "Open member profile" as UC_OpenMemberProfile
+
+  usecase "Send friend request" as UC_SendRequest
+  usecase "Respond to friend request" as UC_RespondRequest
+
+  usecase "View notifications" as UC_Notifications
+  usecase "Mark notifications read" as UC_ReadNotifications
+
+  usecase "View messenger" as UC_Messenger
+  usecase "Send direct message" as UC_SendDM
+
+  usecase "Evaluate submitted text" as UC_Evaluate
+}
+
+Guest --> UC_Browse
+Guest --> UC_Register
+Guest --> UC_Login
+
+Member --> UC_Feed
+Member --> UC_CreatePost
+Member --> UC_UpdatePost
+Member --> UC_DeletePost
+Member --> UC_Comment
+Member --> UC_React
+Member --> UC_Profile
+Member --> UC_UpdateDisplayName
+Member --> UC_Search
+Member --> UC_SearchResults
+Member --> UC_OpenMemberProfile
+Member --> UC_SendRequest
+Member --> UC_RespondRequest
+Member --> UC_Notifications
+Member --> UC_ReadNotifications
+Member --> UC_Messenger
+Member --> UC_SendDM
+
+UC_Search .> UC_SearchResults : <<include>>
+UC_SearchResults .> UC_OpenMemberProfile : <<extend>>
+
+UC_Register .> UC_Evaluate : <<include>>
+UC_CreatePost .> UC_Evaluate : <<include>>
+UC_UpdatePost .> UC_Evaluate : <<include>>
+UC_Comment .> UC_Evaluate : <<include>>
+UC_UpdateDisplayName .> UC_Evaluate : <<include>>
+UC_SendRequest .> UC_Evaluate : <<include>>
+UC_SendDM .> UC_Evaluate : <<include>>
+
+note bottom
+Current search categories are users, posts, and events placeholder.
+Jobs, groups, products, and similar filters can be added later
+without changing the overall search interaction pattern.
+end note
+@enduml

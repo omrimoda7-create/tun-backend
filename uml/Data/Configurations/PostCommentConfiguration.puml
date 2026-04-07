@@ -1,0 +1,9 @@
+@startuml
+class PostCommentConfiguration {
+    + Configure(builder:EntityTypeBuilder<PostComment>) : void
+}
+class "IEntityTypeConfiguration`1"<T> {
+}
+"IEntityTypeConfiguration`1" "<PostComment>" -- PostCommentConfiguration
+@enduml
+

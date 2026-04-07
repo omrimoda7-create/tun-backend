@@ -1,0 +1,17 @@
+@startuml
+!include ..\style.puml
+title PostComment
+
+class PostComment {
+    + Content : string <<get>> <<set>>
+    + Id : Guid
+    + PostId : Guid
+    + Post : Post
+    + UserId : Guid
+    + User : User
+    + CreatedAtUtc : DateTime
+}
+PostComment -- Post : Post
+PostComment -- User : User
+@enduml
+

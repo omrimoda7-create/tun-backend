@@ -1,0 +1,10 @@
+@startuml
+class CreatePostRequest {
+    + Title : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+    + ImageUrl : string? <<get>> <<set>>
+    + Visibility : string <<get>> <<set>> = "Public"
+}
+CreatePostRequest -- "UserId" Guid
+@enduml
+

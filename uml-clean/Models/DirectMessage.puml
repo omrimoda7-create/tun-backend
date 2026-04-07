@@ -1,0 +1,19 @@
+@startuml
+!include ..\style.puml
+title DirectMessage
+
+class DirectMessage {
+    + Content : string <<get>> <<set>>
+    + IsRead : bool <<get>> <<set>>
+    + Id : Guid
+    + SenderUserId : Guid
+    + SenderUser : User
+    + RecipientUserId : Guid
+    + RecipientUser : User
+    + CreatedAtUtc : DateTime
+    + ReadAtUtc : DateTime
+}
+DirectMessage -- User : SenderUser
+DirectMessage -- User : RecipientUser
+@enduml
+

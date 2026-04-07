@@ -1,0 +1,13 @@
+@startuml
+!include ..\style.puml
+title UsersController
+
+class UsersController {
+    + UsersController(dbContext:ApplicationDbContext)
+    + <<async>> Search(query:string?, take:int, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<UserLookupResponse>>>
+    + <<async>> GetById(id:Guid, cancellationToken:CancellationToken) : Task<ActionResult<UserResponse>>
+    + <<async>> Update(id:Guid, request:UpdateUserRequest, cancellationToken:CancellationToken) : Task<ActionResult<UserResponse>>
+}
+AppControllerBase -- UsersController
+@enduml
+

@@ -1,0 +1,8 @@
+@startuml
+!include ..\..\style.puml
+title MarkNotificationReadRequest
+
+class MarkNotificationReadRequest {
+    + UserId : Guid
+}
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class AuthResponse {
+    + Token : string <<get>> <<set>>
+}
+AuthResponse o-> "User" UserResponse
+@enduml

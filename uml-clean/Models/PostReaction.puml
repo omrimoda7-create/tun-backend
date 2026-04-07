@@ -1,0 +1,17 @@
+@startuml
+!include ..\style.puml
+title PostReaction
+
+class PostReaction {
+    + ReactionType : string <<get>> <<set>>
+    + Id : Guid
+    + PostId : Guid
+    + Post : Post
+    + UserId : Guid
+    + User : User
+    + CreatedAtUtc : DateTime
+}
+PostReaction -- Post : Post
+PostReaction -- User : User
+@enduml
+

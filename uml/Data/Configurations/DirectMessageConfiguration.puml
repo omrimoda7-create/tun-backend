@@ -1,0 +1,9 @@
+@startuml
+class DirectMessageConfiguration {
+    + Configure(builder:EntityTypeBuilder<DirectMessage>) : void
+}
+class "IEntityTypeConfiguration`1"<T> {
+}
+"IEntityTypeConfiguration`1" "<DirectMessage>" -- DirectMessageConfiguration
+@enduml
+

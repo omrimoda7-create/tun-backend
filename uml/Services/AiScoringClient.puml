@@ -1,0 +1,14 @@
+@startuml
+class AiScoringClient {
+    + AiScoringClient(httpClient:HttpClient, configuration:IConfiguration, logger:ILogger<AiScoringClient>)
+    + <<async>> ScoreAsync(content:string, cancellationToken:CancellationToken) : Task<double>
+}
+class AiScoreRequest <<sealed>> {
+    + Text : string <<get>> <<set>>
+}
+class AiScoreResponse <<sealed>> {
+    + Score : double <<get>> <<set>>
+}
+AiScoringClient +-- AiScoreRequest
+AiScoringClient +-- AiScoreResponse
+@enduml

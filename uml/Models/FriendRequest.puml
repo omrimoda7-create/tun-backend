@@ -1,0 +1,14 @@
+@startuml
+class FriendRequest {
+    + Status : string <<get>> <<set>> = "Pending"
+    + Note : string? <<get>> <<set>>
+}
+FriendRequest -- "Id" Guid
+FriendRequest -- "RequesterUserId" Guid
+FriendRequest -- "RequesterUser" User
+FriendRequest -- "RecipientUserId" Guid
+FriendRequest -- "RecipientUser" User
+FriendRequest o-> "CreatedAtUtc" DateTime
+FriendRequest -- "UpdatedAtUtc" DateTime
+@enduml
+

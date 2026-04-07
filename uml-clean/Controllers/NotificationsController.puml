@@ -1,0 +1,14 @@
+@startuml
+!include ..\style.puml
+title NotificationsController
+
+class NotificationsController {
+    + NotificationsController(dbContext:ApplicationDbContext, auditService:AuditService)
+    + <<async>> GetByUser(userId:Guid, includeRead:bool, take:int, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<NotificationResponse>>>
+    + <<async>> Create(request:CreateNotificationRequest, cancellationToken:CancellationToken) : Task<ActionResult<NotificationResponse>>
+    + <<async>> MarkRead(id:Guid, request:MarkNotificationReadRequest, cancellationToken:CancellationToken) : Task<ActionResult<NotificationResponse>>
+    + <<async>> MarkAllRead(request:MarkAllNotificationsReadRequest, cancellationToken:CancellationToken) : Task<ActionResult>
+}
+AppControllerBase -- NotificationsController
+@enduml
+

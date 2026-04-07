@@ -1,0 +1,8 @@
+@startuml
+!include ..\style.puml
+title SanctionService
+
+class SanctionService {
+    + Evaluate(user:User, result:ModerationResult) : SanctionOutcome
+}
+@enduml

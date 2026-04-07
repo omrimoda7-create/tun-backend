@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title PostConfiguration
+
+class PostConfiguration {
+    + Configure(builder:EntityTypeBuilder<Post>) : void
+}
+IEntityTypeConfiguration<Post> -- PostConfiguration
+@enduml
+

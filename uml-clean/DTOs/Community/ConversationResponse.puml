@@ -1,0 +1,14 @@
+@startuml
+!include ..\..\style.puml
+title ConversationResponse
+
+class ConversationResponse {
+    + PartnerName : string <<get>> <<set>>
+    + PartnerRole : string <<get>> <<set>>
+    + IsPartnerOnline : bool <<get>> <<set>>
+    + UnreadCount : int <<get>> <<set>>
+    + PartnerUserId : Guid
+    + LastMessageAtUtc : DateTime
+    + Messages : List<DirectMessageResponse>
+}
+@enduml

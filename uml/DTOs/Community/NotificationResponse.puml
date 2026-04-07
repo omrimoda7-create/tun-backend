@@ -1,0 +1,13 @@
+@startuml
+class NotificationResponse {
+    + Type : string <<get>> <<set>> = "System"
+    + Title : string <<get>> <<set>>
+    + Detail : string <<get>> <<set>>
+    + IsRead : bool <<get>> <<set>>
+}
+NotificationResponse -- "Id" Guid
+NotificationResponse -- "UserId" Guid
+NotificationResponse -- "CreatedAtUtc" DateTime
+NotificationResponse -- "ReadAtUtc" DateTime
+@enduml
+

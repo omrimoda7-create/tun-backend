@@ -1,0 +1,23 @@
+@startuml
+!include ..\style.puml
+title ApplicationDbContext
+
+class ApplicationDbContext {
+    + ApplicationDbContext(options:DbContextOptions<ApplicationDbContext>)
+    + Users : DbSet<User>
+    + Messages : DbSet<Message>
+    + ModerationResults : DbSet<ModerationResult>
+    + Warnings : DbSet<Warning>
+    + Freezes : DbSet<Freeze>
+    + Appeals : DbSet<Appeal>
+    + AuditLogs : DbSet<AuditLog>
+    + Posts : DbSet<Post>
+    + PostComments : DbSet<PostComment>
+    + PostReactions : DbSet<PostReaction>
+    + FriendRequests : DbSet<FriendRequest>
+    + Notifications : DbSet<CommunityNotification>
+    + DirectMessages : DbSet<DirectMessage>
+}
+DbContext -- ApplicationDbContext
+@enduml
+

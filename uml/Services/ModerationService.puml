@@ -1,0 +1,6 @@
+@startuml
+class ModerationService {
+    + ModerationService(aiScoringClient:AiScoringClient)
+    + <<async>> EvaluateAsync(messageId:Guid, content:string, cancellationToken:CancellationToken) : Task<ModerationResult>
+}
+@enduml

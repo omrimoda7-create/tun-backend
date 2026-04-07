@@ -1,0 +1,20 @@
+@startuml
+!include ..\style.puml
+title Post
+
+class Post {
+    + Title : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+    + ImageUrl : string? <<get>> <<set>>
+    + Visibility : string <<get>> <<set>> = "Public"
+    + Id : Guid
+    + UserId : Guid
+    + User : User
+    + CreatedAtUtc : DateTime
+    + UpdatedAtUtc : DateTime
+    + Comments : ICollection<PostComment>
+    + Reactions : ICollection<PostReaction>
+}
+Post -- User : User
+@enduml
+

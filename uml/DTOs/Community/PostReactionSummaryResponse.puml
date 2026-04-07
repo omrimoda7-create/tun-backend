@@ -1,0 +1,8 @@
+@startuml
+class PostReactionSummaryResponse {
+    + Like : int <<get>> <<set>>
+    + Insightful : int <<get>> <<set>>
+    + Support : int <<get>> <<set>>
+    + MyReaction : string? <<get>> <<set>>
+}
+@enduml

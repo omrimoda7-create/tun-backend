@@ -1,0 +1,7 @@
+@startuml
+class UpdateFriendRequestStatusRequest {
+    + Status : string <<get>> <<set>> = "Pending"
+}
+UpdateFriendRequestStatusRequest -- "ActorUserId" Guid
+@enduml
+

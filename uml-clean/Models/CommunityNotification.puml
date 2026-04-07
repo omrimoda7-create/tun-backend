@@ -1,0 +1,18 @@
+@startuml
+!include ..\style.puml
+title CommunityNotification
+
+class CommunityNotification {
+    + Type : string <<get>> <<set>> = "System"
+    + Title : string <<get>> <<set>>
+    + Detail : string <<get>> <<set>>
+    + IsRead : bool <<get>> <<set>>
+    + Id : Guid
+    + UserId : Guid
+    + User : User
+    + CreatedAtUtc : DateTime
+    + ReadAtUtc : DateTime
+}
+CommunityNotification -- User : User
+@enduml
+

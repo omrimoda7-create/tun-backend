@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title PostCommentConfiguration
+
+class PostCommentConfiguration {
+    + Configure(builder:EntityTypeBuilder<PostComment>) : void
+}
+IEntityTypeConfiguration<PostComment> -- PostCommentConfiguration
+@enduml
+

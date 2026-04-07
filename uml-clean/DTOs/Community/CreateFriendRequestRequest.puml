@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title CreateFriendRequestRequest
+
+class CreateFriendRequestRequest {
+    + Note : string? <<get>> <<set>>
+    + RequesterUserId : Guid
+    + RecipientUserId : Guid
+}
+@enduml

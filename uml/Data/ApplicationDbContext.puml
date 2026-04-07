@@ -1,0 +1,22 @@
+@startuml
+class ApplicationDbContext {
+    + ApplicationDbContext(options:DbContextOptions<ApplicationDbContext>)
+}
+class "DbSet`1"<T> {
+}
+DbContext -- ApplicationDbContext
+ApplicationDbContext -- "Users<User>" "DbSet`1"
+ApplicationDbContext -- "Messages<Message>" "DbSet`1"
+ApplicationDbContext -- "ModerationResults<ModerationResult>" "DbSet`1"
+ApplicationDbContext -- "Warnings<Warning>" "DbSet`1"
+ApplicationDbContext -- "Freezes<Freeze>" "DbSet`1"
+ApplicationDbContext -- "Appeals<Appeal>" "DbSet`1"
+ApplicationDbContext -- "AuditLogs<AuditLog>" "DbSet`1"
+ApplicationDbContext -- "Posts<Post>" "DbSet`1"
+ApplicationDbContext -- "PostComments<PostComment>" "DbSet`1"
+ApplicationDbContext -- "PostReactions<PostReaction>" "DbSet`1"
+ApplicationDbContext -- "FriendRequests<FriendRequest>" "DbSet`1"
+ApplicationDbContext -- "Notifications<CommunityNotification>" "DbSet`1"
+ApplicationDbContext -- "DirectMessages<DirectMessage>" "DbSet`1"
+@enduml
+

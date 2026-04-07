@@ -1,0 +1,9 @@
+@startuml
+class ModerationResponse {
+    + Score : double <<get>> <<set>>
+    + Action : string <<get>> <<set>>
+    + Reason : string? <<get>> <<set>>
+}
+ModerationResponse -- "MessageId" Guid
+@enduml
+

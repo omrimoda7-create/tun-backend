@@ -1,0 +1,19 @@
+@startuml
+!include ..\style.puml
+title FriendRequest
+
+class FriendRequest {
+    + Status : string <<get>> <<set>> = "Pending"
+    + Note : string? <<get>> <<set>>
+    + Id : Guid
+    + RequesterUserId : Guid
+    + RequesterUser : User
+    + RecipientUserId : Guid
+    + RecipientUser : User
+    + CreatedAtUtc : DateTime
+    + UpdatedAtUtc : DateTime
+}
+FriendRequest -- User : RequesterUser
+FriendRequest -- User : RecipientUser
+@enduml
+

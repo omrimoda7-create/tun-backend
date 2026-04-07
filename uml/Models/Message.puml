@@ -1,0 +1,13 @@
+@startuml
+class Message {
+    + Content : string <<get>> <<set>>
+    + Score : double <<get>> <<set>>
+    + Status : string <<get>> <<set>> = "Pending"
+}
+Message -- "Id" Guid
+Message -- "UserId" Guid
+Message -- "User" User
+Message o-> "CreatedAtUtc" DateTime
+Message -- "ModerationResult" ModerationResult
+@enduml
+

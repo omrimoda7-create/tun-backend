@@ -1,0 +1,9 @@
+@startuml
+!include ..\style.puml
+title AuditService
+
+class AuditService {
+    + AuditService(dbContext:ApplicationDbContext, logger:ILogger<AuditService>)
+    + <<async>> LogAsync(action:string, entityType:string, entityId:string, data:string?, actorUserId:Guid?, cancellationToken:CancellationToken) : Task
+}
+@enduml

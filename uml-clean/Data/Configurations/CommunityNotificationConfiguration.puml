@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title CommunityNotificationConfiguration
+
+class CommunityNotificationConfiguration {
+    + Configure(builder:EntityTypeBuilder<CommunityNotification>) : void
+}
+IEntityTypeConfiguration<CommunityNotification> -- CommunityNotificationConfiguration
+@enduml
+

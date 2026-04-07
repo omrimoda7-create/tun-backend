@@ -1,0 +1,14 @@
+@startuml
+!include ..\style.puml
+title AuditLog
+
+class AuditLog {
+    + Action : string <<get>> <<set>>
+    + EntityType : string <<get>> <<set>>
+    + EntityId : string <<get>> <<set>>
+    + Data : string? <<get>> <<set>>
+    + Id : Guid
+    + ActorUserId : Guid
+    + CreatedAtUtc : DateTime
+}
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+!include ..\..\style.puml
+title ModerationResponse
+
+class ModerationResponse {
+    + Score : double <<get>> <<set>>
+    + Action : string <<get>> <<set>>
+    + Reason : string? <<get>> <<set>>
+    + MessageId : Guid
+}
+@enduml

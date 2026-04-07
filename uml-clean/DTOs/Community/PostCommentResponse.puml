@@ -1,0 +1,12 @@
+@startuml
+!include ..\..\style.puml
+title PostCommentResponse
+
+class PostCommentResponse {
+    + AuthorName : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+    + Id : Guid
+    + UserId : Guid
+    + CreatedAtUtc : DateTime
+}
+@enduml

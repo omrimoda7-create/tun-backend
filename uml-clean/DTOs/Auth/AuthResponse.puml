@@ -1,0 +1,11 @@
+@startuml
+!include ..\..\style.puml
+title AuthResponse
+
+class AuthResponse {
+    + Token : string <<get>> <<set>>
+    + User : UserResponse
+}
+AuthResponse -- UserResponse : User
+@enduml
+

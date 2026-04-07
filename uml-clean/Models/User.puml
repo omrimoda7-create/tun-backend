@@ -1,0 +1,26 @@
+@startuml
+!include ..\style.puml
+title User
+
+class User {
+    + UserName : string <<get>> <<set>>
+    + Email : string <<get>> <<set>>
+    + DisplayName : string <<get>> <<set>>
+    + PasswordHash : string <<get>> <<set>>
+    + Role : string <<get>> <<set>> = "User"
+    + IsFrozen : bool <<get>> <<set>>
+    + FailedLoginAttempts : int <<get>> <<set>>
+    + Id : Guid
+    + LockoutUntilUtc : DateTime
+    + CreatedAtUtc : DateTime
+    + Messages : ICollection<Message>
+    + Posts : ICollection<Post>
+    + PostComments : ICollection<PostComment>
+    + PostReactions : ICollection<PostReaction>
+    + SentFriendRequests : ICollection<FriendRequest>
+    + ReceivedFriendRequests : ICollection<FriendRequest>
+    + Notifications : ICollection<CommunityNotification>
+    + SentDirectMessages : ICollection<DirectMessage>
+    + ReceivedDirectMessages : ICollection<DirectMessage>
+}
+@enduml

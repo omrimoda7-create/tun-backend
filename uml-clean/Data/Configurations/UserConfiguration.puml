@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title UserConfiguration
+
+class UserConfiguration {
+    + Configure(builder:EntityTypeBuilder<User>) : void
+}
+IEntityTypeConfiguration<User> -- UserConfiguration
+@enduml
+

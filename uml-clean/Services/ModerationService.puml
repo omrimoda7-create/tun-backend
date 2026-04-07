@@ -1,0 +1,9 @@
+@startuml
+!include ..\style.puml
+title ModerationService
+
+class ModerationService {
+    + ModerationService(aiScoringClient:AiScoringClient)
+    + <<async>> EvaluateAsync(contentId:Guid, content:string, cancellationToken:CancellationToken) : Task<ModerationResult>
+}
+@enduml

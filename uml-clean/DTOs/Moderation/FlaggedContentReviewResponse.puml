@@ -1,0 +1,20 @@
+@startuml
+!include ..\..\style.puml
+title FlaggedContentReviewResponse
+
+class FlaggedContentReviewResponse {
+    + ModerationResultId : Guid
+    + ContentId : Guid
+    + MessageId : Guid
+    + ContentType : string <<get>> <<set>> = string.Empty
+    + UserId : Guid
+    + UserDisplayName : string <<get>> <<set>> = string.Empty
+    + UserEmail : string <<get>> <<set>> = string.Empty
+    + Content : string <<get>> <<set>> = string.Empty
+    + Score : double
+    + Action : string <<get>> <<set>> = string.Empty
+    + Reason : string? <<get>> <<set>>
+    + Flags : List<string> <<get>> <<set>>
+    + CreatedAtUtc : DateTime
+}
+@enduml

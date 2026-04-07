@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title RegisterRequest
+
+class RegisterRequest {
+    + Email : string <<get>> <<set>>
+    + FullName : string <<get>> <<set>>
+    + Password : string <<get>> <<set>>
+}
+@enduml

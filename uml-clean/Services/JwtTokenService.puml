@@ -1,0 +1,11 @@
+@startuml
+!include ..\style.puml
+title JwtTokenService
+
+class JwtTokenService {
+    + JwtTokenService(jwtOptions:IOptions<JwtOptions>)
+    + CreateToken(user:User) : string
+}
+JwtTokenService -- User : CreateToken
+@enduml
+

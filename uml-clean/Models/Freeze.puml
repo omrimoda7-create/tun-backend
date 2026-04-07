@@ -1,0 +1,16 @@
+@startuml
+!include ..\style.puml
+title Freeze
+
+class Freeze {
+    + Reason : string <<get>> <<set>>
+    + IsActive : bool <<get>> <<set>> = true
+    + Id : Guid
+    + UserId : Guid
+    + User : User
+    + StartsAtUtc : DateTime
+    + EndsAtUtc : DateTime
+}
+Freeze -- User : User
+@enduml
+

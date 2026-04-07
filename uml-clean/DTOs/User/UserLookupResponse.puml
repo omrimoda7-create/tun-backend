@@ -1,0 +1,14 @@
+@startuml
+!include ..\..\style.puml
+title UserLookupResponse
+
+class UserLookupResponse {
+    + Id : Guid
+    + DisplayName : string <<get>> <<set>> = string.Empty
+    + Email : string <<get>> <<set>> = string.Empty
+    + Role : string <<get>> <<set>> = string.Empty
+    + FromEntity(user:User) : UserLookupResponse {static}
+}
+UserLookupResponse -- User : FromEntity
+@enduml
+

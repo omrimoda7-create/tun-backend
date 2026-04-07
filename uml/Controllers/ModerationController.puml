@@ -1,0 +1,8 @@
+@startuml
+class ModerationController {
+    + ModerationController(moderationService:ModerationService)
+    + <<async>> Score(request:ModerationRequest, cancellationToken:CancellationToken) : Task<ActionResult<ModerationResponse>>
+}
+ControllerBase -- ModerationController
+@enduml
+

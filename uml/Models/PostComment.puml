@@ -1,0 +1,12 @@
+@startuml
+class PostComment {
+    + Content : string <<get>> <<set>>
+}
+PostComment -- "Id" Guid
+PostComment -- "PostId" Guid
+PostComment -- "Post" Post
+PostComment -- "UserId" Guid
+PostComment -- "User" User
+PostComment o-> "CreatedAtUtc" DateTime
+@enduml
+

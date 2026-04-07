@@ -1,0 +1,9 @@
+@startuml
+!include ..\..\style.puml
+title LoginRequest
+
+class LoginRequest {
+    + Email : string <<get>> <<set>>
+    + Password : string <<get>> <<set>>
+}
+@enduml

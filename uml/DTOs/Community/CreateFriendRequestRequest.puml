@@ -1,0 +1,8 @@
+@startuml
+class CreateFriendRequestRequest {
+    + Note : string? <<get>> <<set>>
+}
+CreateFriendRequestRequest -- "RequesterUserId" Guid
+CreateFriendRequestRequest -- "RecipientUserId" Guid
+@enduml
+

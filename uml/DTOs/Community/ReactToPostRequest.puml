@@ -1,0 +1,7 @@
+@startuml
+class ReactToPostRequest {
+    + ReactionType : string <<get>> <<set>>
+}
+ReactToPostRequest -- "UserId" Guid
+@enduml
+

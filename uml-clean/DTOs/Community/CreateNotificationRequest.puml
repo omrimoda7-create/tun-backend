@@ -1,0 +1,11 @@
+@startuml
+!include ..\..\style.puml
+title CreateNotificationRequest
+
+class CreateNotificationRequest {
+    + Type : string <<get>> <<set>> = "System"
+    + Title : string <<get>> <<set>>
+    + Detail : string <<get>> <<set>>
+    + UserId : Guid
+}
+@enduml

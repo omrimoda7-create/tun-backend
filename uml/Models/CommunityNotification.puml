@@ -1,0 +1,14 @@
+@startuml
+class CommunityNotification {
+    + Type : string <<get>> <<set>> = "System"
+    + Title : string <<get>> <<set>>
+    + Detail : string <<get>> <<set>>
+    + IsRead : bool <<get>> <<set>>
+}
+CommunityNotification -- "Id" Guid
+CommunityNotification -- "UserId" Guid
+CommunityNotification -- "User" User
+CommunityNotification o-> "CreatedAtUtc" DateTime
+CommunityNotification -- "ReadAtUtc" DateTime
+@enduml
+

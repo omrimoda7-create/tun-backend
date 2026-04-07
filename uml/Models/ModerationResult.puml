@@ -1,0 +1,12 @@
+@startuml
+class ModerationResult {
+    + Score : double <<get>> <<set>>
+    + Action : string <<get>> <<set>> = "Allow"
+    + Reason : string? <<get>> <<set>>
+}
+ModerationResult -- "Id" Guid
+ModerationResult -- "MessageId" Guid
+ModerationResult -- "Message" Message
+ModerationResult o-> "CreatedAtUtc" DateTime
+@enduml
+

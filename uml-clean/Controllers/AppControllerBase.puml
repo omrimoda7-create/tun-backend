@@ -1,0 +1,16 @@
+@startuml
+!include ..\style.puml
+title AppControllerBase
+
+abstract class AppControllerBase {
+    + CurrentUserId : Guid? <<protected>>
+    + CurrentUserIsAdmin : bool <<protected>>
+    + CurrentUserIsModeratorOrAdmin : bool <<protected>>
+    + EnsureCurrentUserMatches(requestedUserId:Guid, allowAdmin:bool) : ActionResult? <<protected>>
+    + EnsureResourceAccess(ownerUserId:Guid, allowAdmin:bool, allowModerator:bool) : ActionResult? <<protected>>
+    + EnsureActiveUser(user:User) : ActionResult? <<protected>>
+}
+ControllerBase -- AppControllerBase
+AppControllerBase -- User : EnsureActiveUser
+@enduml
+

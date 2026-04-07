@@ -1,0 +1,12 @@
+@startuml
+!include ..\..\style.puml
+title CreatePostRequest
+
+class CreatePostRequest {
+    + Title : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+    + ImageUrl : string? <<get>> <<set>>
+    + Visibility : string <<get>> <<set>> = "Public"
+    + UserId : Guid
+}
+@enduml

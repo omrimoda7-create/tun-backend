@@ -1,0 +1,12 @@
+@startuml
+!include ..\style.puml
+title AdminController
+
+class AdminController {
+    + AdminController(dbContext:ApplicationDbContext)
+    + <<async>> GetAuditLogs(limit:int, cancellationToken:CancellationToken) : Task<ActionResult>
+    + <<async>> GetUsers(skip:int, take:int, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<UserResponse>>>
+}
+AppControllerBase -- AdminController
+@enduml
+

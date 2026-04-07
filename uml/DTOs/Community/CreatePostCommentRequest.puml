@@ -1,0 +1,7 @@
+@startuml
+class CreatePostCommentRequest {
+    + Content : string <<get>> <<set>>
+}
+CreatePostCommentRequest -- "UserId" Guid
+@enduml
+

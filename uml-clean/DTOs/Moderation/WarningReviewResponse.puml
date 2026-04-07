@@ -1,0 +1,13 @@
+@startuml
+!include ..\..\style.puml
+title WarningReviewResponse
+
+class WarningReviewResponse {
+    + Id : Guid
+    + UserId : Guid
+    + UserDisplayName : string <<get>> <<set>> = string.Empty
+    + UserEmail : string <<get>> <<set>> = string.Empty
+    + Reason : string <<get>> <<set>> = string.Empty
+    + IssuedAtUtc : DateTime
+}
+@enduml

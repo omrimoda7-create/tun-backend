@@ -1,0 +1,15 @@
+@startuml
+!include ..\..\style.puml
+title NotificationResponse
+
+class NotificationResponse {
+    + Type : string <<get>> <<set>> = "System"
+    + Title : string <<get>> <<set>>
+    + Detail : string <<get>> <<set>>
+    + IsRead : bool <<get>> <<set>>
+    + Id : Guid
+    + UserId : Guid
+    + CreatedAtUtc : DateTime
+    + ReadAtUtc : DateTime
+}
+@enduml

@@ -1,0 +1,4 @@
+@startuml
+class AddAuthSecurityFields <<partial>> {
+}
+@enduml

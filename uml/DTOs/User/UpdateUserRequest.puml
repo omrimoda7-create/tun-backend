@@ -1,0 +1,6 @@
+@startuml
+class UpdateUserRequest {
+    + DisplayName : string? <<get>> <<set>>
+    + Role : string? <<get>> <<set>>
+}
+@enduml

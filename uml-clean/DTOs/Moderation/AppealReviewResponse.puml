@@ -1,0 +1,17 @@
+@startuml
+!include ..\..\style.puml
+title AppealReviewResponse
+
+class AppealReviewResponse {
+    + Id : Guid
+    + UserId : Guid
+    + UserDisplayName : string <<get>> <<set>> = string.Empty
+    + UserEmail : string <<get>> <<set>> = string.Empty
+    + TargetType : string <<get>> <<set>> = string.Empty
+    + TargetId : Guid
+    + Status : string <<get>> <<set>> = string.Empty
+    + Reason : string? <<get>> <<set>>
+    + CreatedAtUtc : DateTime
+    + ResolvedAtUtc : DateTime?
+}
+@enduml

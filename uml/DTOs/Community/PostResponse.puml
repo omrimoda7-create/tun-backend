@@ -1,0 +1,19 @@
+@startuml
+class PostResponse {
+    + AuthorName : string <<get>> <<set>>
+    + RoleLabel : string <<get>> <<set>>
+    + Title : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+    + ImageUrl : string? <<get>> <<set>>
+    + Visibility : string <<get>> <<set>> = "Public"
+}
+class "List`1"<T> {
+}
+PostResponse -- "Id" Guid
+PostResponse -- "UserId" Guid
+PostResponse -- "CreatedAtUtc" DateTime
+PostResponse -- "UpdatedAtUtc" DateTime
+PostResponse o-> "Reactions" PostReactionSummaryResponse
+PostResponse o-> "Comments<PostCommentResponse>" "List`1"
+@enduml
+

@@ -1,0 +1,137 @@
+@startuml
+!include .\style.puml
+title TunSociety API UML Overview
+
+package Controllers {
+    abstract class AppControllerBase
+    class AuthController
+    class UsersController
+    class AdminController
+    class MessagesController
+    class PostsController
+    class FriendRequestsController
+    class NotificationsController
+    class DirectMessagesController
+    class ModerationController
+}
+
+package Services {
+    class JwtTokenService
+    class ModerationService
+    class SanctionService
+    class AuditService
+    class AiScoringClient
+}
+
+package Data {
+    class ApplicationDbContext
+    class ModerationResultConfiguration
+}
+
+package Models {
+    class User
+    class Message
+    class ModerationResult
+    class Warning
+    class Freeze
+    class Appeal
+    class Post
+    class PostComment
+    class PostReaction
+    class FriendRequest
+    class CommunityNotification
+    class DirectMessage
+    class AuditLog
+}
+
+package DTOs {
+    class AuthResponse
+    class UserLookupResponse
+    class PostResponse
+    class MessageResponse
+    class FriendRequestResponse
+    class NotificationResponse
+    class DirectMessageResponse
+    class ConversationResponse
+    class ModerationRequest
+    class ModerationResponse
+    class FlaggedContentReviewResponse
+    class WarningReviewResponse
+    class FreezeReviewResponse
+    class AppealReviewResponse
+    class UpdateAppealStatusRequest
+}
+
+ControllerBase -- AppControllerBase
+AppControllerBase -- AuthController
+AppControllerBase -- UsersController
+AppControllerBase -- AdminController
+AppControllerBase -- MessagesController
+AppControllerBase -- PostsController
+AppControllerBase -- FriendRequestsController
+AppControllerBase -- NotificationsController
+AppControllerBase -- DirectMessagesController
+AppControllerBase -- ModerationController
+
+ApplicationDbContext -- User
+ApplicationDbContext -- Message
+ApplicationDbContext -- ModerationResult
+ApplicationDbContext -- Warning
+ApplicationDbContext -- Freeze
+ApplicationDbContext -- Appeal
+ApplicationDbContext -- Post
+ApplicationDbContext -- PostComment
+ApplicationDbContext -- PostReaction
+ApplicationDbContext -- FriendRequest
+ApplicationDbContext -- CommunityNotification
+ApplicationDbContext -- DirectMessage
+ApplicationDbContext -- AuditLog
+
+Message -- User
+ModerationResult -- User
+Warning -- User
+Freeze -- User
+Appeal -- User
+Post -- User
+PostComment -- Post
+PostComment -- User
+PostReaction -- Post
+PostReaction -- User
+FriendRequest -- User
+CommunityNotification -- User
+DirectMessage -- User
+
+AuthController -- AuthResponse
+AuthController -- JwtTokenService
+UsersController -- UserLookupResponse
+MessagesController -- MessageResponse
+PostsController -- PostResponse
+FriendRequestsController -- FriendRequestResponse
+NotificationsController -- NotificationResponse
+DirectMessagesController -- ConversationResponse
+DirectMessagesController -- DirectMessageResponse
+ModerationController -- ModerationRequest
+ModerationController -- ModerationResponse
+ModerationController -- FlaggedContentReviewResponse
+ModerationController -- WarningReviewResponse
+ModerationController -- FreezeReviewResponse
+ModerationController -- AppealReviewResponse
+ModerationController -- UpdateAppealStatusRequest
+
+ModerationService -- AiScoringClient
+ModerationService -- ModerationResult
+SanctionService -- Warning
+SanctionService -- Freeze
+AuditService -- AuditLog
+ModerationResultConfiguration -- ModerationResult
+
+note bottom
+Detailed standalone diagrams live in:
+- Controllers/
+- Models/
+- Services/
+- Data/Configurations/
+- DTOs/
+end note
+@enduml
+

@@ -1,0 +1,13 @@
+@startuml
+!include ..\style.puml
+title FriendRequestsController
+
+class FriendRequestsController {
+    + FriendRequestsController(dbContext:ApplicationDbContext, auditService:AuditService)
+    + <<async>> GetByUser(userId:Guid, status:string?, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<FriendRequestResponse>>>
+    + <<async>> Create(request:CreateFriendRequestRequest, cancellationToken:CancellationToken) : Task<ActionResult<FriendRequestResponse>>
+    + <<async>> UpdateStatus(id:Guid, request:UpdateFriendRequestStatusRequest, cancellationToken:CancellationToken) : Task<ActionResult<FriendRequestResponse>>
+}
+AppControllerBase -- FriendRequestsController
+@enduml
+

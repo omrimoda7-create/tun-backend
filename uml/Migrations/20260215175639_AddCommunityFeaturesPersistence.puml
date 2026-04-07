@@ -1,0 +1,6 @@
+@startuml
+class AddCommunityFeaturesPersistence <<partial>> {
+}
+Migration -- AddCommunityFeaturesPersistence
+@enduml
+

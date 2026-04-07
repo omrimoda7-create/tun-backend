@@ -1,0 +1,9 @@
+@startuml
+class FriendRequestConfiguration {
+    + Configure(builder:EntityTypeBuilder<FriendRequest>) : void
+}
+class "IEntityTypeConfiguration`1"<T> {
+}
+"IEntityTypeConfiguration`1" "<FriendRequest>" -- FriendRequestConfiguration
+@enduml
+

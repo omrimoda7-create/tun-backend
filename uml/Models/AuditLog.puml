@@ -1,0 +1,12 @@
+@startuml
+class AuditLog {
+    + Action : string <<get>> <<set>>
+    + EntityType : string <<get>> <<set>>
+    + EntityId : string <<get>> <<set>>
+    + Data : string? <<get>> <<set>>
+}
+AuditLog -- "Id" Guid
+AuditLog -- "ActorUserId" Guid
+AuditLog o-> "CreatedAtUtc" DateTime
+@enduml
+

@@ -1,0 +1,152 @@
+@startuml
+title TunSociety - Core Domain Diagram
+top to bottom direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam nodesep 85
+skinparam ranksep 85
+hide empty methods
+hide circle
+
+skinparam class {
+  BackgroundColor white
+  BorderColor #355C7D
+  FontColor #102A43
+}
+skinparam package {
+  BackgroundColor #EEF4F8
+  BorderColor #486581
+  FontColor #243B53
+}
+
+package "Accounts & Identity" {
+  class User {
+    +Id: Guid
+    +UserName: string
+    +Email: string
+    +DisplayName: string
+    +Role: string
+    +IsFrozen: bool
+    +CreatedAtUtc: DateTime
+  }
+}
+
+package "Community" {
+  class Post {
+    +Id: Guid
+    +Title: string
+    +Content: string
+    +Visibility: string
+    +CreatedAtUtc: DateTime
+  }
+
+  class PostComment {
+    +Id: Guid
+    +Content: string
+    +CreatedAtUtc: DateTime
+  }
+
+  class PostReaction {
+    +Id: Guid
+    +ReactionType: string
+    +CreatedAtUtc: DateTime
+  }
+
+  class FriendRequest {
+    +Id: Guid
+    +Status: string
+    +Note: string?
+    +CreatedAtUtc: DateTime
+  }
+
+  class CommunityNotification {
+    +Id: Guid
+    +Type: string
+    +Title: string
+    +IsRead: bool
+    +CreatedAtUtc: DateTime
+  }
+
+  class DirectMessage {
+    +Id: Guid
+    +Content: string
+    +IsRead: bool
+    +CreatedAtUtc: DateTime
+  }
+
+  class Message {
+    +Id: Guid
+    +Content: string
+    +Score: double
+    +Status: string
+    +CreatedAtUtc: DateTime
+  }
+}
+
+package "Moderation & Governance" {
+  class ModerationResult {
+    +Id: Guid
+    +ContentId: Guid
+    +ContentType: string
+    +Score: double
+    +Action: string
+    +Reason: string?
+    +CreatedAtUtc: DateTime
+  }
+
+  class Warning {
+    +Id: Guid
+    +Reason: string
+    +IssuedAtUtc: DateTime
+  }
+
+  class Freeze {
+    +Id: Guid
+    +Reason: string
+    +StartsAtUtc: DateTime
+    +IsActive: bool
+  }
+
+  class Appeal {
+    +Id: Guid
+    +TargetType: string
+    +TargetId: Guid
+    +Status: string
+    +CreatedAtUtc: DateTime
+  }
+
+  class AuditLog {
+    +Id: Guid
+    +Action: string
+    +EntityType: string
+    +EntityId: string
+    +CreatedAtUtc: DateTime
+  }
+}
+
+User "1" -- "0..*" Post : authors >
+User "1" -- "0..*" PostComment : writes >
+User "1" -- "0..*" PostReaction : reacts >
+Post "1" -- "0..*" PostComment : contains >
+Post "1" -- "0..*" PostReaction : aggregates >
+
+User "1" <-- "0..*" FriendRequest : requester
+User "1" <-- "0..*" FriendRequest : recipient
+User "1" -- "0..*" CommunityNotification : receives >
+User "1" <-- "0..*" DirectMessage : sender
+User "1" <-- "0..*" DirectMessage : recipient
+User "1" -- "0..*" Message : submits >
+
+User "1" -- "0..*" ModerationResult : owns >
+User "1" -- "0..*" Warning : receives >
+User "1" -- "0..*" Freeze : receives >
+User "1" -- "0..*" Appeal : files >
+
+note bottom
+This domain diagram focuses on the persisted backend model.
+Search categories such as events, products, jobs, and groups
+are not yet first-class domain entities in the current codebase.
+end note
+@enduml

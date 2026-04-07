@@ -1,0 +1,21 @@
+@startuml
+!include ..\style.puml
+title ModerationResult
+
+class ModerationResult {
+    + Id : Guid
+    + ContentId : Guid
+    + ContentType : string <<get>> <<set>> = string.Empty
+    + UserId : Guid
+    + User : User
+    + ContentSnapshot : string <<get>> <<set>> = string.Empty
+    + Score : double <<get>> <<set>>
+    + Action : string <<get>> <<set>> = "Allow"
+    + Reason : string? <<get>> <<set>>
+    + FlagsData : string <<get>> <<set>> = string.Empty
+    + Flags : List<string> <<get>> <<set>>
+    + CreatedAtUtc : DateTime
+}
+ModerationResult -- User : User
+@enduml
+

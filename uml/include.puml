@@ -1,0 +1,38 @@
+@startuml
+title TunSociety - UML Index
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam note {
+  BackgroundColor #FFFBEA
+  BorderColor #D9B949
+  FontColor #243B53
+}
+
+note as UMLIndex
+Recommended UML files for the report:
+
+1. Program.puml
+   Runtime architecture overview
+
+2. tunsociety-core-domain-diagram.puml
+   Core domain entities and relationships
+
+3. tunsociety-moderation-clean-diagram.puml
+   Moderation pipeline and sanction flow
+
+4. tunsociety-usecase-platform.puml
+   Guest and member platform interactions
+
+5. tunsociety-usecase-moderation.puml
+   Moderator / admin moderation workflows
+
+6. tunsociety-usecase-admin.puml
+   Admin-specific platform responsibilities
+end note
+
+note bottom
+This file replaces the old generated include list.
+The previous obj / migration include dump was not suitable
+for a clean class or use case diagram in a report.
+end note
+@enduml

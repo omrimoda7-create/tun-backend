@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+
+title TunSociety - Admin Use Case Diagram
+
+actor Admin
+
+rectangle "TunSociety Administration" {
+  usecase "Access admin dashboard" as UC_AdminDash
+  usecase "View platform summary" as UC_Summary
+  usecase "Browse platform users" as UC_BrowseUsers
+  usecase "Update user role" as UC_UpdateRole
+  usecase "Review audit logs" as UC_AuditLogs
+  usecase "Open moderation review" as UC_OpenModeration
+}
+
+Admin --> UC_AdminDash
+Admin --> UC_Summary
+Admin --> UC_BrowseUsers
+Admin --> UC_UpdateRole
+Admin --> UC_AuditLogs
+Admin --> UC_OpenModeration
+
+note bottom
+Admin-specific backend endpoints currently cover user listing
+and audit log review. Admins also inherit moderator review rights
+through the shared Admin / Moderator authorization policy.
+end note
+@enduml

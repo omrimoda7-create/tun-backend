@@ -1,0 +1,12 @@
+@startuml
+class MessageResponse {
+    + Content : string <<get>> <<set>>
+    + Score : double <<get>> <<set>>
+    + Status : string <<get>> <<set>>
+    + {static} FromEntity(message:Models.Message) : MessageResponse
+}
+MessageResponse -- "Id" Guid
+MessageResponse -- "UserId" Guid
+MessageResponse -- "CreatedAtUtc" DateTime
+@enduml
+

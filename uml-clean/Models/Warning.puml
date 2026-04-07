@@ -1,0 +1,14 @@
+@startuml
+!include ..\style.puml
+title Warning
+
+class Warning {
+    + Reason : string <<get>> <<set>>
+    + Id : Guid
+    + UserId : Guid
+    + User : User
+    + IssuedAtUtc : DateTime
+}
+Warning -- User : User
+@enduml
+

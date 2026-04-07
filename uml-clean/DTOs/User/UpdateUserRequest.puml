@@ -1,0 +1,9 @@
+@startuml
+!include ..\..\style.puml
+title UpdateUserRequest
+
+class UpdateUserRequest {
+    + DisplayName : string? <<get>> <<set>>
+    + Role : string? <<get>> <<set>>
+}
+@enduml

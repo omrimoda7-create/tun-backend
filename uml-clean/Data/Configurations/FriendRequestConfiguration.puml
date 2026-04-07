@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title FriendRequestConfiguration
+
+class FriendRequestConfiguration {
+    + Configure(builder:EntityTypeBuilder<FriendRequest>) : void
+}
+IEntityTypeConfiguration<FriendRequest> -- FriendRequestConfiguration
+@enduml
+

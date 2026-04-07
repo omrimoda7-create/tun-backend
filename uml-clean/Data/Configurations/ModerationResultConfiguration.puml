@@ -1,0 +1,11 @@
+@startuml
+!include ..\..\style.puml
+title ModerationResultConfiguration
+
+class ModerationResultConfiguration {
+    + Configure(builder:EntityTypeBuilder<ModerationResult>) : void
+}
+IEntityTypeConfiguration<ModerationResult> -- ModerationResultConfiguration
+ModerationResultConfiguration -- ModerationResult : configures
+@enduml
+

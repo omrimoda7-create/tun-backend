@@ -1,0 +1,79 @@
+@startuml
+title TunSociety - Runtime Architecture Overview
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam componentStyle rectangle
+skinparam nodesep 70
+skinparam ranksep 70
+
+skinparam component {
+  BackgroundColor white
+  BorderColor #355C7D
+  FontColor #102A43
+}
+skinparam package {
+  BackgroundColor #EEF4F8
+  BorderColor #486581
+  FontColor #243B53
+}
+skinparam database {
+  BackgroundColor #F8FAFC
+  BorderColor #355C7D
+  FontColor #102A43
+}
+skinparam cloud {
+  BackgroundColor #F8FAFC
+  BorderColor #355C7D
+  FontColor #102A43
+}
+
+actor "Guest / Member /\nModerator / Admin" as Client
+
+package "Browser Client" {
+  component "Angular Frontend\nGuest pages\nAuth\nUser dashboard\nModerator dashboard\nAdmin dashboard" as Frontend
+}
+
+package "ASP.NET Core Backend" {
+  component "Controllers\nAuth\nUsers\nPosts\nFriendRequests\nNotifications\nDirectMessages\nModeration\nAdmin" as Controllers
+  component "JWT Authentication\n+ Role Policies" as Authz
+  component "JwtTokenService" as JwtTokenService
+  component "ModerationService" as ModerationService
+  component "AiScoringClient" as AiScoringClient
+  component "SanctionService" as SanctionService
+  component "AuditService" as AuditService
+  component "ApplicationDbContext" as ApplicationDbContext
+}
+
+database "MySQL\ntunsociety_db" as MySql
+cloud "Ollama Local API\nhttp://localhost:11434\nmodel: deepseek-r1" as Ollama
+component "Local heuristic\nfallback" as Fallback
+
+Client --> Frontend : uses
+Frontend --> Controllers : HTTPS / JSON / JWT
+
+Controllers --> Authz : authorize requests
+Controllers --> JwtTokenService : issue login tokens
+Controllers --> ModerationService : evaluate submitted text
+Controllers --> AuditService : log sensitive actions
+Controllers --> ApplicationDbContext : query / save entities
+
+ModerationService --> AiScoringClient : analyze content
+ModerationService --> SanctionService : warnings / freezes
+AiScoringClient --> Ollama : moderation prompt
+AiScoringClient --> Fallback : if local AI fails
+ApplicationDbContext --> MySql : persistence
+
+note right of Authz
+The backend is the source of truth for roles.
+Changing frontend state or browser-inspected values
+must not grant Admin or Moderator access.
+end note
+
+note bottom of ModerationService
+Moderation checks are applied to posts, comments,
+direct messages, friend-request notes,
+registration full names, and profile display names.
+end note
+@enduml

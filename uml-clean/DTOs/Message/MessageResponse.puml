@@ -1,0 +1,14 @@
+@startuml
+!include ..\..\style.puml
+title MessageResponse
+
+class MessageResponse {
+    + Content : string <<get>> <<set>>
+    + Score : double <<get>> <<set>>
+    + Status : string <<get>> <<set>>
+    + {static} FromEntity(message:Models.Message) : MessageResponse
+    + Id : Guid
+    + UserId : Guid
+    + CreatedAtUtc : DateTime
+}
+@enduml

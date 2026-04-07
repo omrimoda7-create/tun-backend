@@ -1,0 +1,9 @@
+@startuml
+class PostReactionConfiguration {
+    + Configure(builder:EntityTypeBuilder<PostReaction>) : void
+}
+class "IEntityTypeConfiguration`1"<T> {
+}
+"IEntityTypeConfiguration`1" "<PostReaction>" -- PostReactionConfiguration
+@enduml
+

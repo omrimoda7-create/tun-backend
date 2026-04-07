@@ -1,0 +1,9 @@
+@startuml
+class CommunityNotificationConfiguration {
+    + Configure(builder:EntityTypeBuilder<CommunityNotification>) : void
+}
+class "IEntityTypeConfiguration`1"<T> {
+}
+"IEntityTypeConfiguration`1" "<CommunityNotification>" -- CommunityNotificationConfiguration
+@enduml
+

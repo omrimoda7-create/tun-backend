@@ -1,0 +1,14 @@
+@startuml
+class DirectMessage {
+    + Content : string <<get>> <<set>>
+    + IsRead : bool <<get>> <<set>>
+}
+DirectMessage -- "Id" Guid
+DirectMessage -- "SenderUserId" Guid
+DirectMessage -- "SenderUser" User
+DirectMessage -- "RecipientUserId" Guid
+DirectMessage -- "RecipientUser" User
+DirectMessage o-> "CreatedAtUtc" DateTime
+DirectMessage -- "ReadAtUtc" DateTime
+@enduml
+

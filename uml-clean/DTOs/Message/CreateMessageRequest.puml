@@ -1,0 +1,9 @@
+@startuml
+!include ..\..\style.puml
+title CreateMessageRequest
+
+class CreateMessageRequest {
+    + Content : string <<get>> <<set>>
+    + UserId : Guid
+}
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+class ModerationRequest {
+    + Content : string <<get>> <<set>>
+}
+ModerationRequest -- "MessageId" Guid
+@enduml
+

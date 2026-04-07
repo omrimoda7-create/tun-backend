@@ -1,0 +1,15 @@
+@startuml
+!include ..\..\style.puml
+title FreezeReviewResponse
+
+class FreezeReviewResponse {
+    + Id : Guid
+    + UserId : Guid
+    + UserDisplayName : string <<get>> <<set>> = string.Empty
+    + UserEmail : string <<get>> <<set>> = string.Empty
+    + Reason : string <<get>> <<set>> = string.Empty
+    + StartsAtUtc : DateTime
+    + EndsAtUtc : DateTime?
+    + IsActive : bool
+}
+@enduml

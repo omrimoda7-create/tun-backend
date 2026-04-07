@@ -1,0 +1,8 @@
+@startuml
+class SendDirectMessageRequest {
+    + Content : string <<get>> <<set>>
+}
+SendDirectMessageRequest -- "SenderUserId" Guid
+SendDirectMessageRequest -- "RecipientUserId" Guid
+@enduml
+

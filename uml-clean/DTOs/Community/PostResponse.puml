@@ -1,0 +1,21 @@
+@startuml
+!include ..\..\style.puml
+title PostResponse
+
+class PostResponse {
+    + AuthorName : string <<get>> <<set>>
+    + RoleLabel : string <<get>> <<set>>
+    + Title : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+    + ImageUrl : string? <<get>> <<set>>
+    + Visibility : string <<get>> <<set>> = "Public"
+    + Id : Guid
+    + UserId : Guid
+    + CreatedAtUtc : DateTime
+    + UpdatedAtUtc : DateTime
+    + Reactions : PostReactionSummaryResponse
+    + Comments : List<PostCommentResponse>
+}
+PostResponse -- PostReactionSummaryResponse : Reactions
+@enduml
+

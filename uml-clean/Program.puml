@@ -1,0 +1,7 @@
+@startuml
+!include .\style.puml
+title Program
+
+class Program {
+}
+@enduml

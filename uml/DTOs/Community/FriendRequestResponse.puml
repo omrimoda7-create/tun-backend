@@ -1,0 +1,15 @@
+@startuml
+class FriendRequestResponse {
+    + RequesterDisplayName : string <<get>> <<set>>
+    + RequesterEmail : string <<get>> <<set>>
+    + RecipientDisplayName : string <<get>> <<set>>
+    + Status : string <<get>> <<set>> = "Pending"
+    + Note : string? <<get>> <<set>>
+}
+FriendRequestResponse -- "Id" Guid
+FriendRequestResponse -- "RequesterUserId" Guid
+FriendRequestResponse -- "RecipientUserId" Guid
+FriendRequestResponse -- "CreatedAtUtc" DateTime
+FriendRequestResponse -- "UpdatedAtUtc" DateTime
+@enduml
+

@@ -1,0 +1,15 @@
+@startuml
+!include ..\..\style.puml
+title DirectMessageResponse
+
+class DirectMessageResponse {
+    + SenderName : string <<get>> <<set>>
+    + RecipientName : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+    + IsRead : bool <<get>> <<set>>
+    + Id : Guid
+    + SenderUserId : Guid
+    + RecipientUserId : Guid
+    + CreatedAtUtc : DateTime
+}
+@enduml

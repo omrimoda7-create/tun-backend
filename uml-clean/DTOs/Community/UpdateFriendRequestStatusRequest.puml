@@ -1,0 +1,9 @@
+@startuml
+!include ..\..\style.puml
+title UpdateFriendRequestStatusRequest
+
+class UpdateFriendRequestStatusRequest {
+    + Status : string <<get>> <<set>> = "Pending"
+    + ActorUserId : Guid
+}
+@enduml

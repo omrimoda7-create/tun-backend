@@ -1,0 +1,14 @@
+@startuml
+class ConversationResponse {
+    + PartnerName : string <<get>> <<set>>
+    + PartnerRole : string <<get>> <<set>>
+    + IsPartnerOnline : bool <<get>> <<set>>
+    + UnreadCount : int <<get>> <<set>>
+}
+class "List`1"<T> {
+}
+ConversationResponse -- "PartnerUserId" Guid
+ConversationResponse -- "LastMessageAtUtc" DateTime
+ConversationResponse o-> "Messages<DirectMessageResponse>" "List`1"
+@enduml
+

@@ -1,0 +1,12 @@
+@startuml
+!include ..\style.puml
+title MessagesController
+
+class MessagesController {
+    + MessagesController(dbContext:ApplicationDbContext, moderationService:ModerationService, sanctionService:SanctionService, auditService:AuditService)
+    + <<async>> GetById(id:Guid, cancellationToken:CancellationToken) : Task<ActionResult<MessageResponse>>
+    + <<async>> Create(request:CreateMessageRequest, cancellationToken:CancellationToken) : Task<ActionResult<MessageResponse>>
+}
+AppControllerBase -- MessagesController
+@enduml
+

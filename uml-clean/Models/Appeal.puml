@@ -1,0 +1,18 @@
+@startuml
+!include ..\style.puml
+title Appeal
+
+class Appeal {
+    + TargetType : string <<get>> <<set>>
+    + Status : string <<get>> <<set>> = "Open"
+    + Reason : string? <<get>> <<set>>
+    + Id : Guid
+    + UserId : Guid
+    + User : User
+    + TargetId : Guid
+    + CreatedAtUtc : DateTime
+    + ResolvedAtUtc : DateTime
+}
+Appeal -- User : User
+@enduml
+

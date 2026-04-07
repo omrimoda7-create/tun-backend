@@ -1,0 +1,12 @@
+@startuml
+class Freeze {
+    + Reason : string <<get>> <<set>>
+    + IsActive : bool <<get>> <<set>> = true
+}
+Freeze -- "Id" Guid
+Freeze -- "UserId" Guid
+Freeze -- "User" User
+Freeze o-> "StartsAtUtc" DateTime
+Freeze -- "EndsAtUtc" DateTime
+@enduml
+

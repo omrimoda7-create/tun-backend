@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title MessageConfiguration
+
+class MessageConfiguration {
+    + Configure(builder:EntityTypeBuilder<Message>) : void
+}
+IEntityTypeConfiguration<Message> -- MessageConfiguration
+@enduml
+

@@ -1,0 +1,67 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+
+title TunSociety - Moderation Use Case Diagram
+
+actor User
+actor Moderator
+actor Admin
+
+rectangle "TunSociety Moderation" {
+  usecase "Submit moderated content" as UC_Submit
+  usecase "Analyze content" as UC_Analyze
+  usecase "Allow content" as UC_Allow
+  usecase "Flag content for review" as UC_Flag
+  usecase "Block content" as UC_Block
+  usecase "Record moderation result" as UC_Record
+  usecase "Issue warning" as UC_Warning
+  usecase "Freeze account" as UC_Freeze
+
+  usecase "Review flagged content" as UC_ReviewFlagged
+  usecase "Review warnings" as UC_ReviewWarnings
+  usecase "Review freezes" as UC_ReviewFreezes
+  usecase "Review appeals" as UC_ReviewAppeals
+  usecase "Update appeal status" as UC_UpdateAppeal
+  usecase "Accept freeze appeal" as UC_AcceptAppeal
+  usecase "Audit moderation actions" as UC_Audit
+}
+
+User --> UC_Submit
+
+Moderator --> UC_ReviewFlagged
+Moderator --> UC_ReviewWarnings
+Moderator --> UC_ReviewFreezes
+Moderator --> UC_ReviewAppeals
+Moderator --> UC_UpdateAppeal
+Moderator --> UC_Audit
+
+Admin --> UC_ReviewFlagged
+Admin --> UC_ReviewWarnings
+Admin --> UC_ReviewFreezes
+Admin --> UC_ReviewAppeals
+Admin --> UC_UpdateAppeal
+Admin --> UC_Audit
+
+UC_Submit .> UC_Analyze : <<include>>
+UC_Analyze .> UC_Record : <<include>>
+UC_Analyze .> UC_Allow : <<extend>>
+UC_Analyze .> UC_Flag : <<extend>>
+UC_Analyze .> UC_Block : <<extend>>
+
+UC_Block .> UC_Warning : <<include>>
+UC_Block .> UC_Freeze : <<extend>>
+
+UC_UpdateAppeal .> UC_AcceptAppeal : <<extend>>
+UC_UpdateAppeal .> UC_Audit : <<include>>
+
+note bottom
+The current backend exposes moderator/admin appeal review,
+but it does not yet expose a public user endpoint to submit appeals.
+Freeze occurs only after 3 blocked violations.
+Accepting a freeze appeal can unfreeze the account.
+User appeal submission can be modeled later as a planned extension.
+end note
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+class PostsController {
+    + PostsController(dbContext:ApplicationDbContext, moderationService:ModerationService, sanctionService:SanctionService, auditService:AuditService)
+    + <<async>> GetFeed(userId:Guid, take:int, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<PostResponse>>>
+    + <<async>> Create(request:CreatePostRequest, cancellationToken:CancellationToken) : Task<ActionResult<PostResponse>>
+    + <<async>> AddComment(postId:Guid, request:CreatePostCommentRequest, cancellationToken:CancellationToken) : Task<ActionResult<PostResponse>>
+    + <<async>> React(postId:Guid, request:ReactToPostRequest, cancellationToken:CancellationToken) : Task<ActionResult<PostResponse>>
+}
+ControllerBase -- PostsController
+@enduml
+

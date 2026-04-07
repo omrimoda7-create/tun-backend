@@ -1,0 +1,9 @@
+@startuml
+!include ..\..\style.puml
+title CreatePostCommentRequest
+
+class CreatePostCommentRequest {
+    + Content : string <<get>> <<set>>
+    + UserId : Guid
+}
+@enduml

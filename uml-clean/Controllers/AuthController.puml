@@ -1,0 +1,14 @@
+@startuml
+!include ..\style.puml
+title AuthController
+
+class AuthController {
+    + AuthController(dbContext:ApplicationDbContext, jwtTokenService:JwtTokenService, adminAccountOptions:IOptions<AdminAccountOptions>)
+    + <<async>> Register(request:RegisterRequest, cancellationToken:CancellationToken) : Task<ActionResult<AuthResponse>>
+    + <<async>> Login(request:LoginRequest, cancellationToken:CancellationToken) : Task<ActionResult<AuthResponse>>
+    + OAuthGoogle() : ActionResult
+    + OAuthGithub() : ActionResult
+}
+AppControllerBase -- AuthController
+@enduml
+

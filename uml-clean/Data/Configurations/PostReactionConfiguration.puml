@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title PostReactionConfiguration
+
+class PostReactionConfiguration {
+    + Configure(builder:EntityTypeBuilder<PostReaction>) : void
+}
+IEntityTypeConfiguration<PostReaction> -- PostReactionConfiguration
+@enduml
+

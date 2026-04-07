@@ -1,0 +1,6 @@
+@startuml
+class MarkAllNotificationsReadRequest {
+}
+MarkAllNotificationsReadRequest -- "UserId" Guid
+@enduml
+

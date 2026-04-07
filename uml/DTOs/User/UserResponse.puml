@@ -1,0 +1,12 @@
+@startuml
+class UserResponse {
+    + UserName : string <<get>> <<set>>
+    + Email : string <<get>> <<set>>
+    + DisplayName : string <<get>> <<set>>
+    + Role : string <<get>> <<set>>
+    + IsFrozen : bool <<get>> <<set>>
+    + {static} FromEntity(user:Models.User) : UserResponse
+}
+UserResponse -- "Id" Guid
+@enduml
+

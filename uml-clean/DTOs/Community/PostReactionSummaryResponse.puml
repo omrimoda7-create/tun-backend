@@ -1,0 +1,11 @@
+@startuml
+!include ..\..\style.puml
+title PostReactionSummaryResponse
+
+class PostReactionSummaryResponse {
+    + Like : int <<get>> <<set>>
+    + Insightful : int <<get>> <<set>>
+    + Support : int <<get>> <<set>>
+    + MyReaction : string? <<get>> <<set>>
+}
+@enduml

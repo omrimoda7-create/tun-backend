@@ -1,0 +1,9 @@
+@startuml
+class CreateNotificationRequest {
+    + Type : string <<get>> <<set>> = "System"
+    + Title : string <<get>> <<set>>
+    + Detail : string <<get>> <<set>>
+}
+CreateNotificationRequest -- "UserId" Guid
+@enduml
+

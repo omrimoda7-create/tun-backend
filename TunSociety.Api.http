@@ -1,0 +1,6 @@
+@TunSociety.Api_HostAddress = http://localhost:5257
+
+GET {{TunSociety.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

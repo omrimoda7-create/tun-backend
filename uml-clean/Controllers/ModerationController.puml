@@ -1,0 +1,16 @@
+@startuml
+!include ..\style.puml
+title ModerationController
+
+class ModerationController {
+    + ModerationController(dbContext:ApplicationDbContext, moderationService:ModerationService, auditService:AuditService)
+    + <<async>> Score(request:ModerationRequest, cancellationToken:CancellationToken) : Task<ActionResult<ModerationResponse>>
+    + <<async>> GetFlaggedContent(take:int, action:string?, userId:Guid?, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<FlaggedContentReviewResponse>>>
+    + <<async>> GetWarnings(take:int, userId:Guid?, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<WarningReviewResponse>>>
+    + <<async>> GetFreezes(take:int, activeOnly:bool, userId:Guid?, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<FreezeReviewResponse>>>
+    + <<async>> GetAppeals(take:int, status:string?, userId:Guid?, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<AppealReviewResponse>>>
+    + <<async>> UpdateAppealStatus(id:Guid, request:UpdateAppealStatusRequest, cancellationToken:CancellationToken) : Task<ActionResult<AppealReviewResponse>>
+}
+AppControllerBase -- ModerationController
+@enduml
+

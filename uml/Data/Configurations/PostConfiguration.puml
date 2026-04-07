@@ -1,0 +1,9 @@
+@startuml
+class PostConfiguration {
+    + Configure(builder:EntityTypeBuilder<Post>) : void
+}
+class "IEntityTypeConfiguration`1"<T> {
+}
+"IEntityTypeConfiguration`1" "<Post>" -- PostConfiguration
+@enduml
+

@@ -1,0 +1,25 @@
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam dpi 160
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 13
+skinparam ArrowColor #4A5568
+skinparam ArrowThickness 1
+skinparam linetype ortho
+skinparam nodesep 35
+skinparam ranksep 35
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam classFontColor #1F2937
+skinparam classBorderColor #475569
+skinparam classBackgroundColor #F8FAFC
+skinparam classHeaderBackgroundColor #E2E8F0
+skinparam titleFontSize 18
+skinparam titleFontColor #0F172A
+skinparam noteBackgroundColor #FEFCE8
+skinparam noteBorderColor #CA8A04
+
+hide circle
+hide empty fields
+hide empty methods

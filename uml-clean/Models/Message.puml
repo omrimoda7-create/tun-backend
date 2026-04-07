@@ -1,0 +1,16 @@
+@startuml
+!include ..\style.puml
+title Message
+
+class Message {
+    + Content : string <<get>> <<set>>
+    + Score : double <<get>> <<set>>
+    + Status : string <<get>> <<set>> = "Pending"
+    + Id : Guid
+    + UserId : Guid
+    + User : User
+    + CreatedAtUtc : DateTime
+}
+Message -- User : User
+@enduml
+

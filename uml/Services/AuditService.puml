@@ -1,0 +1,6 @@
+@startuml
+class AuditService {
+    + AuditService(dbContext:ApplicationDbContext)
+    + <<async>> LogAsync(action:string, entityType:string, entityId:string, data:string?, actorUserId:Guid?, cancellationToken:CancellationToken) : Task
+}
+@enduml

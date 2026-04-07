@@ -1,0 +1,10 @@
+@startuml
+class SanctionService {
+    + Evaluate(user:User, result:ModerationResult) : SanctionOutcome
+}
+class SanctionOutcome <<record>> {
+    + Warning : Warning? <<get>> <<init>>
+    + Freeze : Freeze? <<get>> <<init>>
+    + UserUpdated : bool <<get>> <<init>>
+}
+@enduml

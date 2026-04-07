@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title DirectMessageConfiguration
+
+class DirectMessageConfiguration {
+    + Configure(builder:EntityTypeBuilder<DirectMessage>) : void
+}
+IEntityTypeConfiguration<DirectMessage> -- DirectMessageConfiguration
+@enduml
+

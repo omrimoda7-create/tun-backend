@@ -1,0 +1,10 @@
+@startuml
+class PostCommentResponse {
+    + AuthorName : string <<get>> <<set>>
+    + Content : string <<get>> <<set>>
+}
+PostCommentResponse -- "Id" Guid
+PostCommentResponse -- "UserId" Guid
+PostCommentResponse -- "CreatedAtUtc" DateTime
+@enduml
+

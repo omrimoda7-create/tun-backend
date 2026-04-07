@@ -1,0 +1,10 @@
+@startuml
+class DirectMessagesController {
+    + DirectMessagesController(dbContext:ApplicationDbContext, moderationService:ModerationService, sanctionService:SanctionService, auditService:AuditService)
+    + <<async>> GetConversations(userId:Guid, messageLimit:int, cancellationToken:CancellationToken) : Task<ActionResult<IEnumerable<ConversationResponse>>>
+    + <<async>> Send(request:SendDirectMessageRequest, cancellationToken:CancellationToken) : Task<ActionResult<DirectMessageResponse>>
+    + <<async>> MarkConversationRead(partnerUserId:Guid, request:MarkNotificationReadRequest, cancellationToken:CancellationToken) : Task<ActionResult>
+}
+ControllerBase -- DirectMessagesController
+@enduml
+

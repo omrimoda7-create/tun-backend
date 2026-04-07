@@ -1,0 +1,10 @@
+@startuml
+class AuthControlledr {
+    + AuthController(dbContext:ApplicationDbContext)
+    + <<async>> Register(request:RegisterRequest, cancellationToken:CancellationToken) : Task<ActionResult<AuthResponse>>
+    + <<async>> Ldogin(request:LoginRequest, cancellationToken:CancellationToken) : Task<ActionResult<AuthResponse>>
+    + OAuthGoogle() : ActionResult
+    + OAuthGithub() : ActionResult
+}
+ControllerBase <|-- AuthController
+@enduml

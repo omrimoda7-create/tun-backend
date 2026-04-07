@@ -1,0 +1,10 @@
+@startuml
+!include ..\..\style.puml
+title SendDirectMessageRequest
+
+class SendDirectMessageRequest {
+    + Content : string <<get>> <<set>>
+    + SenderUserId : Guid
+    + RecipientUserId : Guid
+}
+@enduml
