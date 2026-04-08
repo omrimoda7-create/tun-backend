@@ -1,9 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using TunSociety.Api.Configuration;
-using TunSociety.Api.Data;
 using TunSociety.Api.Infrastructure;
 using TunSociety.Api.Services;
 
@@ -74,22 +72,7 @@ builder.Services.AddScoped<AuditService>();
 builder.Services.AddScoped<JwtTokenService>();
 builder.Services.AddSingleton<AvatarStorageService>();
 
-// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-// if (string.IsNullOrWhiteSpace(connectionString))
-// {
-//     throw new InvalidOperationException("DefaultConnection is missing. Set it in appsettings.json or environment.");
-// }
-
-// builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//     options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 34))));
-
 var app = builder.Build();
-
-// using (var scope = app.Services.CreateScope())
-// {
-//     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-//     dbContext.Database.Migrate();
-// }
 
 app.UseHttpsRedirection();
 app.UseCors("Frontend");
